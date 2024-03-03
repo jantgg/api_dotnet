@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "3710eb97-6e30-45f1-baef-7d01c3657122",
+		"name": "Books Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33276018"
+	},
+	"item": [
+		{
+			"name": "Login/Get token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Username\": \"usuarioPrueba\",\r\n  \"Password\": \"contraseñaPrueba\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5042/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5042",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Books",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJ1c3VhcmlvUHJ1ZWJhIiwibmJmIjoxNzA5NDc5NzY3LCJleHAiOjE3MDk1NjYxNjcsImlhdCI6MTcwOTQ3OTc2NywiaXNzIjoiUHJ1ZWJhbW9rIiwiYXVkIjoiUG9zdG1hbiJ9.d7Sw-tFLWubyd7jRoEbKFmdY89xVHCp8tOh24lmxGO8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5042/api/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5042",
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single book",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJ1c3VhcmlvUHJ1ZWJhIiwibmJmIjoxNzA5NDcyNTI3LCJleHAiOjE3MDk1NTg5MjcsImlhdCI6MTcwOTQ3MjUyNywiaXNzIjoiUHJ1ZWJhbW9rIiwiYXVkIjoiUG9zdG1hbiJ9.8d73KXe_ybzChAzKgNXlyATkdHQzAgZiK8OB5eV2adA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5042/api/books/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5042",
+					"path": [
+						"api",
+						"books",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post book",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJ1c3VhcmlvUHJ1ZWJhIiwibmJmIjoxNzA5NDc5NzY3LCJleHAiOjE3MDk1NjYxNjcsImlhdCI6MTcwOTQ3OTc2NywiaXNzIjoiUHJ1ZWJhbW9rIiwiYXVkIjoiUG9zdG1hbiJ9.d7Sw-tFLWubyd7jRoEbKFmdY89xVHCp8tOh24lmxGO8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Title\": \"Prueba de post\",\r\n    \"Author\": \"Patrick Rothfussp\",\r\n    \"Genre\": \"Fantasíap\",\r\n    \"PublishDate\": \"2007-03-27T00:00:00\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5042/api/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5042",
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put book",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJ1c3VhcmlvUHJ1ZWJhIiwibmJmIjoxNzA5NDcyODkzLCJleHAiOjE3MDk1NTkyOTMsImlhdCI6MTcwOTQ3Mjg5MywiaXNzIjoiUHJ1ZWJhbW9rIiwiYXVkIjoiUG9zdG1hbiJ9.4EmiMYCpCBsXXqWfF5cXEPXR0Uead_pyX4lqmx1oZZY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Id\": 2,\r\n    \"Title\": \"Prueba de put\",\r\n    \"Author\": \"Patrick Rothfussp\",\r\n    \"Genre\": \"Fantasíap\",\r\n    \"PublishDate\": \"2007-03-27T00:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5042/api/books/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5042",
+					"path": [
+						"api",
+						"books",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Del book",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJ1c3VhcmlvUHJ1ZWJhIiwibmJmIjoxNzA5NDcyODkzLCJleHAiOjE3MDk1NTkyOTMsImlhdCI6MTcwOTQ3Mjg5MywiaXNzIjoiUHJ1ZWJhbW9rIiwiYXVkIjoiUG9zdG1hbiJ9.4EmiMYCpCBsXXqWfF5cXEPXR0Uead_pyX4lqmx1oZZY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5042/api/books/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5042",
+					"path": [
+						"api",
+						"books",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

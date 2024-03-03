@@ -3,21 +3,26 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PruebaApi.Data; 
+using PruebaApi.Data;
 using Microsoft.EntityFrameworkCore;
+using PruebaApi.Models; 
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Cadena de conexión a la base de datos
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseInMemoryDatabase("BDMemoria"));
 
+
+// Registra los servicios necesarios para los controladores
+builder.Services.AddControllers(); // Añade soporte para controladores
 
 // Add services to the container.
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// JWT SERVICIO
+// Configuración de JWT
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -37,6 +42,50 @@ builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<ApplicationDbContext>();
+    // Asegúrate de que la base de datos está creada
+    context.Database.EnsureCreated();
+    
+    // Precargar usuarios o cualquier otro dato necesario
+    if (!context.Users.Any())
+    {
+        context.Users.Add(new User { Username = "usuarioPrueba", Password = "contraseñaPrueba" }); // Considera usar hashing para la contraseña
+    }
+
+    // Precargar libros si no existen en la base de datos
+    if (!context.Books.Any())
+    {
+        context.Books.AddRange(
+            new Book
+            {
+                Title = "Cien años de soledad",
+                Author = "Gabriel García Márquez",
+                Genre = "Realismo mágico",
+                PublishDate = new DateTime(1967, 5, 30)
+            },
+            new Book
+            {
+                Title = "1984",
+                Author = "George Orwell",
+                Genre = "Ciencia ficción distópica",
+                PublishDate = new DateTime(1949, 6, 8)
+            },
+            new Book
+            {
+                Title = "El señor de los anillos",
+                Author = "J.R.R. Tolkien",
+                Genre = "Fantasía",
+                PublishDate = new DateTime(1954, 7, 29)
+            }
+        );
+        context.SaveChanges();
+    }
+}
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -45,33 +94,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthentication(); // Asegura que la app use la autenticación
+app.UseAuthorization(); // Asegura que la app use la autorización
 
-app.UseAuthentication();
-app.UseAuthorization();
-
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", [Authorize]() => 
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+app.MapControllers(); // Mapea los controladores
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

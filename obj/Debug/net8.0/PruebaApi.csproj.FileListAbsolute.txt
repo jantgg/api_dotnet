@@ -138,3 +138,5 @@ C:\Users\ferna\OneDrive\Escritorio\prueba_mok_api\PruebaApi\obj\Debug\net8.0\Pru
 C:\Users\ferna\OneDrive\Escritorio\prueba_mok_api\PruebaApi\obj\Debug\net8.0\ref\PruebaApi.dll
 C:\Users\ferna\OneDrive\Escritorio\prueba_mok_api\PruebaApi\bin\Debug\net8.0\books.json
 C:\Users\ferna\OneDrive\Escritorio\prueba_mok_api\PruebaApi\bin\Debug\net8.0\users.json
+C:\Users\ferna\OneDrive\Escritorio\prueba_mok_api\PruebaApi\obj\Debug\net8.0\PruebaApi.sourcelink.json
+C:\Users\ferna\OneDrive\Escritorio\prueba_mok_api\PruebaApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.InMemory.dll

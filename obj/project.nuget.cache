@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CSxXEWEBudELxDYJ/VHzUCVoRr0XCVehMXuftymjsTev2eJFzKwOY/YSgUpSV5nUmELY4HErDN9gPsbpCdEAVw==",
+  "dgSpecHash": "xkGm+jMNxOLsMk81YUKN+AmZlJnYoQGweUuLgwHWVA3f3OqnyrVEVZjBV5Nb9w9TGcncitH4uosh816I2hgxmg==",
   "success": true,
   "projectFilePath": "C:\\Users\\ferna\\OneDrive\\Escritorio\\prueba_mok_api\\PruebaApi\\PruebaApi.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,7 @@
     "C:\\Users\\ferna\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.2\\microsoft.entityframeworkcore.abstractions.8.0.2.nupkg.sha512",
     "C:\\Users\\ferna\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.2\\microsoft.entityframeworkcore.analyzers.8.0.2.nupkg.sha512",
     "C:\\Users\\ferna\\.nuget\\packages\\microsoft.entityframeworkcore.design\\8.0.2\\microsoft.entityframeworkcore.design.8.0.2.nupkg.sha512",
+    "C:\\Users\\ferna\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\8.0.2\\microsoft.entityframeworkcore.inmemory.8.0.2.nupkg.sha512",
     "C:\\Users\\ferna\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\8.0.2\\microsoft.entityframeworkcore.relational.8.0.2.nupkg.sha512",
     "C:\\Users\\ferna\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\8.0.2\\microsoft.entityframeworkcore.sqlserver.8.0.2.nupkg.sha512",
     "C:\\Users\\ferna\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\8.0.2\\microsoft.entityframeworkcore.tools.8.0.2.nupkg.sha512",
