@@ -15,8 +15,8 @@ Para ejecutar este proyecto necesitas tener instalado:<br>
 ## Configuración y Ejecución
 -Primero, clona el repositorio a tu máquina local usando Git:<br>
 -Navega al directorio del proyecto y ejecuta el siguiente comando para iniciar la API:  dotnet run <br>
--Encontrás una breve descripción de los endpoints en: http://localhost:5042/swagger/index.html<br>
--Podrás realizar llamads a la Api en: http://localhost:5042<br>
+-Encontrás todos los endpoints en: http://localhost:5042/swagger/index.html<br>
+-Podrás realizar llamadas a la Api en: http://localhost:5042<br>
 
 
 ## Uso de la API
